@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import Home from './pages/Home';
+import Analytics from './pages/Analytics';
+import Architecture from './pages/Architecture';
+import Digitalcore from './pages/Digitalcore';
+import Documentation from './pages/Documentation';
+import Team from './pages/Team';
+import Search from './pages/Search';
 
-function App() {
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Sidebar>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Home />} />
+          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/architecture" element={<Architecture />} />
+          <Route path="/digital" element={<Digitalcore />} />
+          <Route path="/documentation" element={<Documentation />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/search" element={<Search />} />
+        </Routes>
+      </Sidebar>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
